@@ -19,3 +19,4 @@ CLI Django
 - User.objects.all()
 - me = User.objects.get(username='drx')
 - Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+

@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # The path that the static files will be served from
-STATIC_URL = "/static/"
+STATIC_URL = "/staticfiles/"
 # The directory that collectstatic will collect static files to
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # The directory that static files will be collected from

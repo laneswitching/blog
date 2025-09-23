@@ -1,13 +1,11 @@
-start server with 
-
->> python manage.py runserver
+start server with >> python manage.py runserver <<
 
 http://127.0.0.1:8000/admin
 http://127.0.0.1:8000/
 
-server also remote setup by pythonanywhere
+server also remote setup on pythonanywhere
 
-drx.pythonanywhere.com
+drx.pythonanywhere.com | cd. drxpythonanywhere.com | git pull to update to main version
 
 
 CLI Django

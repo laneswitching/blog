@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #C25100;
+    background-color: #000000;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -22,7 +22,7 @@ h4 {
 }
 
 .date {
-    color: #828282;
+    color: #828222;
 }
 
 .save {
@@ -68,4 +68,21 @@ h4 {
 .btn-secondary:hover {
     color: #FFFFFF;
     background-color: #C25100;
+}
+
+.actions {
+    margin: 20px 0;
+}
+
+.actions .btn {
+    margin-right: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
 }

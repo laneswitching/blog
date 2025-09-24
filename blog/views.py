@@ -3,6 +3,7 @@ from .models import Post
 from .forms import PostForm
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def post_list(request):
     posts = Post.objects.all()  # Fetch all Post objects
@@ -25,6 +26,7 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
+
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -39,3 +41,16 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+@login_required
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        try:
+            post.delete()
+            messages.success(request, "Post deleted successfully.")
+            return redirect('post_list')
+        except Exception as e:
+            messages.error(request, "Error deleting post: {}".format(e))
+            return render(request, 'blog/post_confirm_delete.html', {'post': post})
+    return render(request, 'blog/post_confirm_delete.html', {'post': post})

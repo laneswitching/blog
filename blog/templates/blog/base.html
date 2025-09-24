@@ -27,3 +27,19 @@
         </main>
     </body>
 </html>
+
+<main class="error message">
+    <div class="row">
+        <div class="col">
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message.tags }}</div>
+                {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% block error %}
+            {% endblock %}
+        </div>
+    </div>
+</main>

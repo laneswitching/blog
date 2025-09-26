@@ -15,6 +15,8 @@
         {% if post.published_date %}
             <time class="date">
                 {{ post.published_date }}
+                {{ post.author }}
+                {{ post.edited_date }}
                 
             </time>
         {% endif %}

@@ -122,7 +122,7 @@ STATIC_URL = "/staticfiles/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # The directory that static files will be collected from
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "/blog/static",
 ]
 
 

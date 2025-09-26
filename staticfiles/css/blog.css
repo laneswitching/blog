@@ -1,71 +1,177 @@
+:root {
+    --nier-black: #2B2B2B;
+    --nier-white: #E8E8E8;
+    --nier-accent: #C7B59B;
+    --space-glow: #4A90E2;
+}
+
+body {
+    background-color: var(--nier-black);
+    color: var(--nier-white);
+    font-family: 'Century Gothic', sans-serif;
+    margin: 0;
+}
+
 .page-header {
-    background-color: #C25100;
+    background-color: rgba(43, 43, 43, 0.9);
+    border-bottom: 2px solid var(--nier-accent);
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
+    text-align: center; 
+}
+
+.page-header .container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative; 
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .page-header h1,
 .page-header h1 a,
 .page-header h1 a:visited,
 .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
+    color: var(--nier-white);
+    font-size: 2.25rem;
     text-decoration: none;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    transition: text-shadow 0.3s ease;
+    flex-wrap: wrap;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Lobster', cursive;
+h1, h2, h3, h4 {
+    font-family: 'Century Gothic', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea,
-.post-form input {
-    width: 100%;
-}
-
-.top-menu,
-.top-menu:hover,
-.top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    color: var(--nier-accent);
+    font-style: italic;
 }
 
 .post {
+    background: rgba(43, 43, 43, 0.7);
+    padding: 20px;
     margin-bottom: 70px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid var(--nier-accent);
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
 }
 
 .post h2 a,
 .post h2 a:visited {
-    color: #000000;
-}
-
-.post > .date,
-.post > .actions {
-    float: right;
+    color: var(--nier-white);
+    text-decoration: none;
 }
 
 .btn-secondary,
 .btn-secondary:visited {
-    color: #C25100;
+    color: var(--nier-accent);
     background: none;
-    border-color: #C25100;
-    margin-left: 15px;
+    border: 2px solid var(--nier-accent);
+    padding: 8px 16px;
+    transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-    color: #FFFFFF;
-    background-color: #C25100;
+    color: var(--nier-black);
+    background-color: var(--nier-accent);
+    box-shadow: 0 0 10px var(--space-glow);
+}
+
+.btn-danger {
+    background-color: #A94442;
+    border: none;
+    color: var(--nier-white);
+}
+
+.btn-danger:hover {
+    background-color: #843534;
+    box-shadow: 0 0 10px #FF4136;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-menu.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: var(--nier-black);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid var(--nier-accent);
+}
+
+.dropdown-content a {
+    color: var(--nier-white);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--nier-accent);
+}
+
+.top-menu:hover .dropdown-content {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.top-menu,
+.top-menu:visited {
+    color: var(--nier-white);
+    font-size: 2rem;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.top-menu:hover {
+    text-shadow: 0 0 3px var(--space-glow);
+}
+
+.site-title {
+    margin: 0;
+    text-align: center;
+}
+
+.site-title a {
+    color: var(--space-glow);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-title svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
 }

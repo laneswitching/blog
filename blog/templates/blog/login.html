@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YoRHa Login Terminal</title>
+    <style>
+        body {
+            background-color: #2c2c2c;
+            color: #e2e2e2;
+            font-family: 'Century Gothic', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            border: 2px solid #e2e2e2;
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .yorha-logo {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input {
+            background-color: #1a1a1a;
+            border: 1px solid #e2e2e2;
+            color: #e2e2e2;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #e2e2e2;
+            color: #2c2c2c;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="yorha-logo">
+            YoRHa Command Center
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Android ID" required>
+            <input type="password" name="password" placeholder="Authorization Code" required>
+            <button type="submit">Initialize Login Sequence</button>
+        </form>
+    </div>
+</body>
+</html>

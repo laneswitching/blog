@@ -1,0 +1,102 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="nier-container">
+    <h2 class="nier-title">YoRHa Registration Terminal</h2>
+    
+    {% if user.is_authenticated %}
+        <p class="nier-text">You are already registered and logged in.</p>
+        <p class="nier-text"><a href="{% url 'post_list' %}" class="nier-link">Return to Main Terminal</a></p>
+    {% else %}
+        <p class="nier-text">Please fill out the form below to register.</p>
+        <form method="POST" class="nier-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Assigned Name:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label>Communication Protocol (Email):</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label>Access Code:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label>Confirm Access Code:</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="nier-button">Initialize Registration</button>
+        </form>
+        <p class="nier-text">Already registered? <a href="{% url 'login' %}" class="nier-link">Access Terminal</a></p>
+    {% endif %}
+    {% endblock %}
+</div>
+
+<style>
+    .nier-container {
+        max-width: 500px;
+        margin: 2em auto;
+        padding: 2em;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 1px solid #9c9c9c;
+        color: #e2e2e2;
+    }
+
+    .nier-title {
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        color: #d4d4d4;
+        margin-bottom: 1.5em;
+    }
+
+    .nier-form .form-group {
+        margin-bottom: 1em;
+    }
+
+    .nier-form label {
+        display: block;
+        margin-bottom: 0.5em;
+        color: #9c9c9c;
+    }
+
+    .nier-form input {
+        width: 100%;
+        padding: 0.5em;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #666;
+        color: #fff;
+    }
+
+    .nier-button {
+        width: 100%;
+        padding: 0.8em;
+        background-color: #4a4a4a;
+        border: 1px solid #9c9c9c;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .nier-button:hover {
+        background-color: #666;
+    }
+
+    .nier-text {
+        text-align: center;
+        margin-top: 1em;
+        color: #9c9c9c;
+    }
+
+    .nier-link {
+        color: #d4d4d4;
+        text-decoration: none;
+    }
+
+    .nier-link:hover {
+        color: #fff;
+    }
+</style>
+</div>

@@ -42,6 +42,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+
+#delete view with error handling
 @login_required
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -54,3 +56,6 @@ def post_delete(request, pk):
             messages.error(request, "Error deleting post: {}".format(e))
             return render(request, 'blog/post_confirm_delete.html', {'post': post})
     return render(request, 'blog/post_confirm_delete.html', {'post': post})
+
+def about(request):
+    return render(request, 'blog/about.html')

@@ -51,6 +51,9 @@ h1, h2, h3, h4 {
 .site-title {
     margin: 0;
     text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .site-title a {
@@ -59,7 +62,6 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 100px;
 }
 
 .site-title svg {
@@ -95,6 +97,18 @@ h1, h2, h3, h4 {
     transition: transform 0.3s ease;
 }
 
+.new-post-container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+.post-head{
+    text-align: center;
+    font-family: 'Century Gothic', sans-serif;
+    color: var(--nier-accent);
+}
 .post:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
@@ -122,6 +136,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .top-menu .dropdown-content {
@@ -204,4 +219,203 @@ h1, h2, h3, h4 {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+/* Login Page */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container input {
+    background-color: #1a1a1a;
+    border: 1px solid #e2e2e2;
+    color: #e2e2e2;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    background-color: #e2e2e2;
+    color: #2c2c2c;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login-container button:hover {
+    background-color: #ffffff;
+}
+
+.login-container .alert {
+    margin-bottom: 1em;
+}
+
+.yorha-logo {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    color: #e2e2e2;
+}
+
+/* Registration Page */
+.nier-container {
+    max-width: 500px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #9c9c9c;
+    color: #e2e2e2;
+}
+
+.nier-title {
+    text-align: center;
+    font-family: 'Century Gothic', sans-serif;
+    color: #d4d4d4;
+    margin-bottom: 1.5em;
+}
+
+.nier-form .form-group {
+    margin-bottom: 1em;
+}
+
+.nier-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #9c9c9c;
+}
+
+.nier-form input {
+    width: 100%;
+    padding: 0.5em;
+    background-color: rgba(236, 236, 236, 0.1);
+    border: 1px solid #666;
+    color: #fff;
+}
+
+.nier-button {
+    width: 100%;
+    padding: 0.8em;
+    background-color: #4a4a4a;
+    border: 1px solid #9c9c9c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nier-button:hover {
+    background-color: #666;
+}
+
+.nier-text {
+    text-align: center;
+    margin-top: 1em;
+    color: #9c9c9c;
+}
+
+.nier-link {
+    color: #d4d4d4;
+    text-decoration: none;
+}
+
+.nier-link:hover {
+    color: #fff;
+}
+
+.alert-small {
+    padding: 0.5em 0.75em;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+}
+
+/* Post Actions */
+.actions {
+    margin-bottom: 1em;
+}
+
+.actions a {
+    margin-right: 0.5em;
+}
+
+.actions svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* New/Edit Post Form */
+.new-post-container {
+    max-width: 700px;
+    margin: 3em auto;
+    padding: 2em;
+    background: rgba(43, 43, 43, 0.7);
+    border: 2px solid var(--nier-accent);
+}
+
+.post-head {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: var(--nier-white);
+}
+
+.new-post-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-post-container form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--nier-white);
+    font-weight: bold;
+}
+
+.new-post-container form input,
+.new-post-container form textarea {
+    background-color: rgba(236, 236, 236, 0.1);
+    border: 1px solid var(--nier-accent);
+    color: var(--nier-white);
+    padding: 0.75em;
+    margin-bottom: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.new-post-container form input:focus,
+.new-post-container form textarea:focus {
+    outline: none;
+    border-color: var(--space-glow);
+    box-shadow: 0 0 8px var(--space-glow);
+}
+
+.new-post-container button {
+    align-self: center;
+    padding: 0.75em 2em;
+    background-color: var(--nier-accent);
+    border: 2px solid var(--nier-accent);
+    color: var(--nier-black);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.new-post-container button:hover {
+    background-color: var(--space-glow);
+    border-color: var(--space-glow);
+    box-shadow: 0 0 10px var(--space-glow);
 }

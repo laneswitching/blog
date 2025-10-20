@@ -2,12 +2,16 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <h2>New Post/Edit</h2>
+    {% if is_new %}
+        <h2>Create New Post</h2>
+    {% else %}
+        <h2>Edit Post</h2>
+    {% endif %}
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-secondary">Save</button>
     </form>
 {% else %}
-    <a href="{% url 'login' %}?next={% url 'post_new' %}">Log in to create or edit posts.</a>
+    <a href="{% url 'login' %}?next={% url 'post_edit' %}">Log in to create or edit posts.</a>
 {% endif %}
 {% endblock %}

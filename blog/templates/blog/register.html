@@ -16,18 +16,46 @@
             <div class="form-group">
                 <label>Assigned Name:</label>
                 {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="alert alert-danger alert-small" role="alert">
+                        {% for error in form.username.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label>E-Mail:</label>
                 {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger alert-small" role="alert">
+                        {% for error in form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label>Access Code:</label>
                 {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="alert alert-danger alert-small" role="alert">
+                        {% for error in form.password1.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label>Confirm Access Code:</label>
                 {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="alert alert-danger alert-small" role="alert">
+                        {% for error in form.password2.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
             <button type="submit" class="nier-button">Initialize Registration</button>
         </form>
@@ -97,6 +125,12 @@
 
     .nier-link:hover {
         color: #fff;
+    }
+
+    .alert-small {
+        padding: 0.5em 0.75em;
+        margin-top: 0.5em;
+        font-size: 0.9em;
     }
 </style>
 

@@ -27,7 +27,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_edit.html', {'form': form, 'is_new': True})
 
 @login_required
 def post_edit(request, pk):
@@ -43,7 +43,7 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_edit.html', {'form': form, 'is_new': False})
 
 
 #delete view with error handling
@@ -73,7 +73,6 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('post_list')
-        messages.error(request, "Invalid username or password.")
     else:
         form = AuthenticationForm()
     return render(request, 'blog/login.html', {'form': form})
@@ -89,11 +88,6 @@ def register(request):
             form.save()
             messages.success(request, "Registration successful. You can now log in.")
             return redirect('login')
-        else:
-            # Surface form errors via messages
-            for field_errors in form.errors.values():
-                for error in (field_errors if isinstance(field_errors, list) else [field_errors]):
-                    messages.error(request, error)
     else:
         form = CustomUserCreationForm()
     return render(request, 'blog/register.html', {'form': form})

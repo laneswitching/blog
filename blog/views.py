@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CustomUserCreationForm
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 
 def post_list(request):
     posts = Post.objects.all()  # Fetch all Post objects
@@ -37,7 +37,8 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.edited_date = now() 
+            # Optionally update published_date on edit
+            # post.published_date = now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -55,7 +56,7 @@ def post_delete(request, pk):
             messages.success(request, "Post deleted successfully.")
             return redirect('post_list')
         except Exception as e:
-            messages.error(request, "Error deleting post: {}".format(e))
+            messages.error(request, f"Error deleting post: {e}")
             return render(request, 'blog/post_confirm_delete.html', {'post': post})
     return render(request, 'blog/post_confirm_delete.html', {'post': post})
 
@@ -83,12 +84,16 @@ def logout_view(request):
 
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('post_list')
-        messages.error(request, "Registration failed. Please correct the errors below.")
+            form.save()
+            messages.success(request, "Registration successful. You can now log in.")
+            return redirect('login')
+        else:
+            # Surface form errors via messages
+            for field_errors in form.errors.values():
+                for error in (field_errors if isinstance(field_errors, list) else [field_errors]):
+                    messages.error(request, error)
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'blog/register.html', {'form': form})

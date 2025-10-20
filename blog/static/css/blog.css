@@ -59,6 +59,7 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: 100px;
 }
 
 .site-title svg {
@@ -184,4 +185,23 @@ h1, h2, h3, h4 {
         padding: 10px;
         max-width: 98%;
     }
+}
+
+/* About Page */
+.about-section  {
+    background: rgba(43, 43, 43, 0.7);
+    padding: 20px;
+    margin-bottom: 70px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid var(--nier-accent);
+    transition: transform 0.3s ease;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
